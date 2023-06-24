@@ -1,35 +1,36 @@
+import { sum2DArray } from "./sum2DArray";
+
 function elfWithTheLargestCalories() {
-  const firstElf: number = 1000 + 2000 + 3000;
-  const secondElf: number = 4000;
-  const thirdElf: number = 5000 + 6000;
-  const fourthElf: number = 7000 + 8000 + 9000;
-  const fifthElf: number = 10000;
+  const organizedData = sum2DArray();
 
-  const elfObject = [
-    { name: "First Elf", calorieAmount: firstElf },
-    { name: "Second Elf", calorieAmount: secondElf },
-    { name: "Third Elf", calorieAmount: thirdElf },
-    { name: "Fourth Elf", calorieAmount: fourthElf },
-    { name: "Fifth Elf", calorieAmount: fifthElf },
-  ];
+  const findTheLargestNumber = Math.max(...organizedData);
 
-  const elvesArrayTotal: number[] = [
-    elfObject[0].calorieAmount,
-    elfObject[1].calorieAmount,
-    elfObject[2].calorieAmount,
-    elfObject[3].calorieAmount,
-    elfObject[4].calorieAmount,
-  ];
+  return findTheLargestNumber;
+}
+console.log(
+  `Larges amount of calories for a single elf: ${elfWithTheLargestCalories()}`
+);
 
-  const elvesPutInOrderDescending = elvesArrayTotal
+function theTopThreeElves() {
+  const organizedData = sum2DArray();
+
+  const elvesPutInOrderDescending = organizedData
     .sort((a, b) => a - b)
     .reverse();
 
-  for (let elf of elfObject) {
-    if (elvesPutInOrderDescending[0] === elf.calorieAmount) {
-      return elf;
+  let topTheeElves: number[] = [];
+
+  for (let i = 0; i < elvesPutInOrderDescending.length; i++) {
+    if (i < 3) {
+      topTheeElves.push(elvesPutInOrderDescending[i]);
+    } else {
+      break;
     }
   }
+  const sumTopThreeElves = topTheeElves.reduce((a, b) => {
+    return a + b;
+  });
+  return sumTopThreeElves;
 }
 
-console.log(elfWithTheLargestCalories());
+console.log(`Total of Top Three Elves with calories: ${theTopThreeElves()}`);
