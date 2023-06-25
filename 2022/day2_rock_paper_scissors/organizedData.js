@@ -8,4 +8,3 @@ function organizedData() {
     return splitLines;
 }
 exports.organizedData = organizedData;
-console.log(organizedData());

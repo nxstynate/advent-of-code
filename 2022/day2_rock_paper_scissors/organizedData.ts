@@ -6,5 +6,3 @@ export function organizedData(): string[] {
 
   return splitLines;
 }
-
-console.log(organizedData());
