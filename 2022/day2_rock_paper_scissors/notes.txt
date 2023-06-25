@@ -1,0 +1,17 @@
+Advent of Code: Day2 Rock Paper Scissors.
+A = Rock B = Paper C = Scissors
+X = Rock Y = Paper Z = Scissors
+Scoring: 1 pt for Rock, 2 pt for Paper, 3 pt for Scissors
+Total Score = sum of your scores for each round.
+Winner gets an additional 6 pts to the item they chose.
+Loser is 0 + the item you chose.
+Draw is 3 + the item you chose.
+
+
+1. Create a player 1 and player 2.
+2. Assign each player with their characters.
+3. Give the characters their point value.
+4. Write up and algorithm to determine which players win, lose, or draw.
+5. Assign a point value for the terms of the game session.
+6. Provide the total for each player based off the data provided.
+
