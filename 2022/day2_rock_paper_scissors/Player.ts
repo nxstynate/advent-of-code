@@ -1,4 +1,4 @@
-interface Player {
+export interface Player {
   character: string;
   item: string;
   points: number;

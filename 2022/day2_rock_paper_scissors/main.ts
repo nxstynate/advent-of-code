@@ -3,16 +3,24 @@ import { organizedData } from "./organizedData";
 
 function findTheWinner() {
   const gameRounds = organizedData();
-  const Player1 = player1();
-  const Player2 = player2();
+  const gamePlayer1 = player1();
+  const gamePlayer2 = player2();
 
-  for (let gameRound of gameRounds) {
-    for (let i of Player1) {
-      if (i.character === gameRound) {
-        console.log("it works");
+  const numberAssignments: string[][] = [];
+
+  for (let i of gameRounds) {
+    for (let j of i) {
+      for (let player1 of gamePlayer1) {
+        for (let player2 of gamePlayer2) {
+          if (player1.character || player2.character === j) {
+            numberAssignments.push(player1.points);
+          } else {
+            console.log(false);
+          }
+        }
       }
-      console.log("it does not work");
     }
   }
 }
+
 findTheWinner();
