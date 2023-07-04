@@ -1,7 +1,9 @@
+2023-07-03:
+
 2023-06-28:
   done - 1. Put each round in a structured 2D array.
-  working - 2. Go through each array inside the stack, and determine the score for each character. 
-  3. Go through each array inside the stack, and determine the terms of the round at which a score will be tied to the terms of the game.
+  2. Go through each array inside the stack, and determine the terms of the round at which a score will be tied to the terms of the game.
+  3. Go through each array inside the stack, and determine the score for each character. 
   4. Total the all numbers for each array.
   5. Append each number to a new array. 
   6. Total all items inside the new array and output.
