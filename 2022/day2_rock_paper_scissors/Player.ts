@@ -1,23 +1,17 @@
 export interface Player {
+  player: string;
   character: string;
   item: string;
   points: number;
 }
-export function player1(): Player[] {
+export function player(): Player[] {
   const player: Player[] = [
-    { character: "X", item: "rock", points: 1 },
-    { character: "Y", item: "paper", points: 2 },
-    { character: "Z", item: "scissors", points: 3 },
-  ];
-
-  return player;
-}
-
-export function player2(): Player[] {
-  const player: Player[] = [
-    { character: "A", item: "rock", points: 1 },
-    { character: "B", item: "paper", points: 2 },
-    { character: "C", item: "scissors", points: 3 },
+    { player: "player", character: "X", item: "rock", points: 1 },
+    { player: "player", character: "Y", item: "paper", points: 2 },
+    { player: "player", character: "Z", item: "scissors", points: 3 },
+    { player: "opponent", character: "A", item: "rock", points: 1 },
+    { player: "opponent", character: "B", item: "paper", points: 2 },
+    { player: "opponent", character: "C", item: "scissors", points: 3 },
   ];
 
   return player;
