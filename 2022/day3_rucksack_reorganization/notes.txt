@@ -1,0 +1,15 @@
+NOTES:
+2023-07-06:
+1. Split each line of data into two, they represent two different compartments.
+2. Assign values to each character lower case letters a-z are from 1-26, upper case letters are from 27-52.
+3. Find matches from each matches / doubles between the two compartments.
+4. From each compartment group match add it to a new group to sum up all the matches. 
+
+// const ruckSack: string[][] = [
+  ["vJrwpWtwJgWrhcsFMMfFFhFp"],
+  ["jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL"],
+  ["PmmdzqPrVvPwwTWBwg"],
+  ["wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn"],
+  ["ttgJtRGJQctTZtZT"],
+  ["CrZsJsPPZsGzwwsLwLmpwMDw"],
+// ];

@@ -1,8 +1,8 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.gameResult = void 0;
 function gameResult() {
-    var gameTerms = [
+    const gameTerms = [
         { gameResult: "Win", points: 6 },
         { gameResult: "Lose", points: 0 },
         { gameResult: "Draw", points: 3 },

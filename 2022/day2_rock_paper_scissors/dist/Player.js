@@ -1,8 +1,8 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.player = void 0;
 function player() {
-    var player = [
+    const player = [
         { player: "player", character: "X", item: "rock", points: 1 },
         { player: "player", character: "Y", item: "paper", points: 2 },
         { player: "player", character: "Z", item: "scissors", points: 3 },
