@@ -48,6 +48,9 @@ class SortingData {
     }
     return characterMap;
   }
+
+  // TODO: BUILD THE FUNCTION OUT BELOW TO PROVIDE AN ARRAY THAT WILL COLLECT THE POINTS FROM THE MATCHES IT FINDS THROUGH THE FUNCTIONS ABOVE.
+
   public tallyOfCharacters(assignedPoints, comparedLines): number[] {
     let pointsList = [];
 
