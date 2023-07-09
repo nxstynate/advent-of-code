@@ -13,7 +13,7 @@ class SortingData {
         this.data = data;
     }
     compareLines() {
-        let emptyList = [];
+        let matchedLettersArray = [];
         for (let characters of this.data) {
             const splitChar = characters.split("");
             const midpoint = Math.floor(splitChar.length / 2);
@@ -22,12 +22,12 @@ class SortingData {
             for (let i of firstHalf) {
                 for (let j of secondHalf) {
                     if (i === j) {
-                        emptyList.push(i);
+                        matchedLettersArray.push(i);
                     }
                 }
             }
         }
-        console.log(emptyList);
+        console.log(matchedLettersArray);
     }
     assignNumberToCharacters() {
         const setOfCharacterArray = "!abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -38,7 +38,18 @@ class SortingData {
         }
         return characterMap;
     }
+    tallyOfCharacters(assignedPoints, comparedLines) {
+        let pointsList = [];
+        for (let i of assignedPoints) {
+            if (comparedLines === i) {
+                pointsList.push(comparedLines);
+            }
+        }
+        return pointsList;
+    }
 }
-const sortThisData = new SortingData(ruckSack);
-sortThisData.compareLines();
-// console.log(sortThisData.assignNumberToCharacters());
+const initClass = new SortingData(ruckSack);
+const assignNumber = initClass.assignNumberToCharacters();
+const compare = initClass.compareLines();
+const result = initClass.tallyOfCharacters(assignNumber, compare);
+console.log(result);

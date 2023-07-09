@@ -48,8 +48,20 @@ class SortingData {
     }
     return characterMap;
   }
+  public tallyOfCharacters(assignedPoints, comparedLines): number[] {
+    let pointsList = [];
+
+    for (let i of assignedPoints) {
+      if (comparedLines === i) {
+        pointsList.push(comparedLines);
+      }
+    }
+    return pointsList;
+  }
 }
 
-const sortThisData = new SortingData(ruckSack);
-sortThisData.compareLines();
-// console.log(sortThisData.assignNumberToCharacters());
+const initClass = new SortingData(ruckSack);
+const assignNumber = initClass.assignNumberToCharacters();
+const compare = initClass.compareLines();
+const result = initClass.tallyOfCharacters(assignNumber, compare);
+console.log(result);
