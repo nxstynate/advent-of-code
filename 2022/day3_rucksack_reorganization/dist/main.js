@@ -12,7 +12,7 @@ class SortingData {
     constructor(data) {
         this.data = data;
     }
-    compareLines() {
+    matchedCharacters() {
         let matchedLettersArray = [];
         for (let characters of this.data) {
             const splitChar = characters.split("");
@@ -27,7 +27,7 @@ class SortingData {
                 }
             }
         }
-        console.log(matchedLettersArray);
+        return matchedLettersArray;
     }
     assignNumberToCharacters() {
         const setOfCharacterArray = "!abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -38,18 +38,31 @@ class SortingData {
         }
         return characterMap;
     }
-    tallyOfCharacters(assignedPoints, comparedLines) {
+    // TODO: BUILD THE FUNCTION OUT BELOW TO PROVIDE AN ARRAY THAT WILL COLLECT THE POINTS FROM THE MATCHES IT FINDS THROUGH THE FUNCTIONS ABOVE.
+    listOfCharactersToNumbers(assignedPoints, matchingCharacters) {
         let pointsList = [];
-        for (let i of assignedPoints) {
-            if (comparedLines === i) {
-                pointsList.push(comparedLines);
+        for (let i in assignedPoints) {
+            for (let j of matchingCharacters) {
+                if (i === j) {
+                    pointsList.push(assignedPoints[i]);
+                }
             }
         }
         return pointsList;
     }
+    sumOfNumbers(arrayOfNumber) {
+        const sum = arrayOfNumber.reduce((a, b) => {
+            return a + b;
+        });
+        return sum;
+    }
 }
 const initClass = new SortingData(ruckSack);
 const assignNumber = initClass.assignNumberToCharacters();
-const compare = initClass.compareLines();
-const result = initClass.tallyOfCharacters(assignNumber, compare);
+const matched = initClass.matchedCharacters();
+const result = initClass.listOfCharactersToNumbers(assignNumber, matched);
+const sumResult = initClass.sumOfNumbers(result);
+console.log(sumResult);
 console.log(result);
+// console.log(matched);
+// console.log(assignNumber);
