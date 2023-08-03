@@ -2,7 +2,7 @@ import { RuckSackBase } from "./mainBase";
 import { finalData } from "./organizedData";
 import { testData } from "./organizedData";
 
-const ruckSack = testData;
+const ruckSack = finalData;
 
 class RuckSackPartTwo extends RuckSackBase {
   constructor(data: string[][]) {
@@ -18,30 +18,36 @@ class RuckSackPartTwo extends RuckSackBase {
       const currentArrays = this.data.slice(i, i + 3);
 
       const firstArray = currentArrays[0][0];
+      const secondArray = currentArrays[1][0];
+      const thirdArray = currentArrays[2][0];
 
-      for (const char of firstArray) {
-        let isCommon = true;
-
-        for (let j = 1; j < currentArrays.length; j++) {
-          if (!currentArrays[j][0].includes(char)) {
-            isCommon = false;
-            break;
+      for (let charOne of firstArray) {
+        for (let charTwo of secondArray) {
+          if (charOne === charTwo) {
+            tempListA.push(charOne);
           }
         }
-        if (isCommon && !matchedLettersArray.includes(char)) {
-          tempListA.push(char);
-        }
-        const reduceTempListA = tempListA.filter(
-          (letter, index) => tempListA.indexOf(letter) === index
-        );
+      }
 
-        for (let i of reduceTempListA) {
-          matchedLettersArray.push(i);
-          tempListA.length = 0;
+      for (let charThree of thirdArray) {
+        for (let item of tempListA) {
+          if (charThree === item) {
+            tempListB.push(charThree);
+          }
         }
       }
+      const reduceTempListB = tempListB.filter(
+        (letter, index) => tempListB.indexOf(letter) === index
+      );
+
+      for (let i of reduceTempListB) {
+        matchedLettersArray.push(i);
+      }
+
+      tempListA.length = 0;
+      tempListB.length = 0;
     }
-    console.log(tempListA);
+    console.log(matchedLettersArray);
     return matchedLettersArray;
   }
 }
