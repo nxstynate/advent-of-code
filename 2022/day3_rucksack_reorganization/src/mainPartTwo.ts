@@ -1,6 +1,5 @@
 import { RuckSackBase } from "./mainBase";
 import { finalData } from "./organizedData";
-import { testData } from "./organizedData";
 
 const ruckSack = finalData;
 
@@ -9,9 +8,8 @@ class RuckSackPartTwo extends RuckSackBase {
     super(data);
   }
   protected matchedCharacters(): string[] {
-    const tempListA: string[] = [];
-    const tempListB: string[] = [];
-    const finalList: string[] = [];
+    const compareOne: string[] = [];
+    const compareTwo: string[] = [];
     const matchedLettersArray: string[] = [];
 
     for (let i = 0; i < this.data.length - 2; i += 3) {
@@ -24,28 +22,28 @@ class RuckSackPartTwo extends RuckSackBase {
       for (let charOne of firstArray) {
         for (let charTwo of secondArray) {
           if (charOne === charTwo) {
-            tempListA.push(charOne);
+            compareOne.push(charOne);
           }
         }
       }
 
       for (let charThree of thirdArray) {
-        for (let item of tempListA) {
+        for (let item of compareOne) {
           if (charThree === item) {
-            tempListB.push(charThree);
+            compareTwo.push(charThree);
           }
         }
       }
-      const reduceTempListB = tempListB.filter(
-        (letter, index) => tempListB.indexOf(letter) === index
+      const reduceTempListB = compareTwo.filter(
+        (letter, index) => compareTwo.indexOf(letter) === index
       );
 
       for (let i of reduceTempListB) {
         matchedLettersArray.push(i);
       }
 
-      tempListA.length = 0;
-      tempListB.length = 0;
+      compareOne.length = 0;
+      compareTwo.length = 0;
     }
     console.log(matchedLettersArray);
     return matchedLettersArray;
