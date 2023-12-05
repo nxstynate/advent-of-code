@@ -1,8 +1,8 @@
 import { rawData } from "./rawData";
+import { testRawData } from "./testRawData";
 
-export function organizedData(): string[][] {
-  const importedRawData = rawData();
-  const splitLines = importedRawData.trim().split("\n");
+function organizedData(inputData: string): string[][] {
+  const splitLines = inputData.trim().split("\n");
 
   const makeCharacterStringMatrix: string[][] = [];
 
@@ -14,4 +14,8 @@ export function organizedData(): string[][] {
   return makeCharacterStringMatrix;
 }
 
-console.log(organizedData());
+const importedRawData = rawData();
+export const finalData = organizedData(importedRawData);
+
+const importedTestData = testRawData();
+export const testData = organizedData(importedTestData);
