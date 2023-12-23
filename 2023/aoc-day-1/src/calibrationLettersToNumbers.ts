@@ -1,8 +1,5 @@
-import { calibrationDocument } from "./tempCalibrationDoc";
-
-console.log(calibrationLettersToNumbers(calibrationDocument));
-export function calibrationLettersToNumbers(input) {
-  let isStoredNumber = [];
+export function calibrationLettersToNumbers(input: string[]): number[] {
+  let isStoredNumber: number[] = [];
 
   // const input = calibrationSplitIntoLines(input);
 

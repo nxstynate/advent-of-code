@@ -1,5 +1,6 @@
 import { calibrationSplitIntoLines } from "./calibrationSplitIntoLines.js";
 import { calibrationValue } from "./calibrationValue.js";
+import { calibrationLettersToNumbers } from "./calibrationLettersToNumbers.js";
 
 export function calibrationValueSum(input) {
   let isNumber = [];
@@ -7,8 +8,10 @@ export function calibrationValueSum(input) {
 
   const isArray = calibrationSplitIntoLines(input);
 
-  for (let i = 0; i < isArray.length; i++) {
-    const hasRemovedLetters = isArray[i].replace(/[a-z]/gi, "");
+  const isLettersToNumbers = calibrationLettersToNumbers(isArray);
+
+  for (let i = 0; i < isLettersToNumbers.length; i++) {
+    const hasRemovedLetters = isLettersToNumbers[i].replace(/[a-z]/gi, "");
     const hasFirstAndLastNumbers = calibrationValue(hasRemovedLetters);
     const convertToInteger = parseInt(hasFirstAndLastNumbers);
     isNumber.push(convertToInteger);
