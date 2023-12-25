@@ -9,7 +9,7 @@ export function calibrationToIntegers(input: string[]): number[] {
       .replace(/[a-z]/gi, "");
     const hasFirstAndLastNumbers: string = calibrationValue(hasRemovedLetters);
     if (hasFirstAndLastNumbers.length > 0) {
-      const convertToInteger: number = parseInt(hasFirstAndLastNumbers[0]);
+      const convertToInteger: number = parseInt(hasFirstAndLastNumbers);
       isNumber.push(convertToInteger);
     }
   }

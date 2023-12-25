@@ -1,4 +1,4 @@
-export const calibrationDocument: string = `
+export const tempCalibrationDocument: string = `
 two1nine
 eightwothree
 abcone2threexyz

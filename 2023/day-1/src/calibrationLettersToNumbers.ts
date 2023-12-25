@@ -1,28 +1,41 @@
-export function calibrationLettersToNumbers(input: string[]): number[] {
-  let isStoredNumber: number[] = [];
+const numberMap: { [key: string]: string } = {
+  one: "1",
+  two: "2",
+  three: "3",
+  four: "4",
+  five: "5",
+  six: "6",
+  seven: "7",
+  eight: "8",
+  nine: "9",
+};
 
-  // const input = calibrationSplitIntoLines(input);
+export function calibrationLettersToNumbers(lines: string[]): string[] {
+  return lines.map(line => {
+    let newLine = "";
+    let word = "";
 
-  for (let i = 0; i < input.length; i++) {
-    if (input[i].includes("one")) {
-      isStoredNumber.push(1);
-    } else if (input[i].includes("two")) {
-      isStoredNumber.push(2);
-    } else if (input[i].includes("three")) {
-      isStoredNumber.push(3);
-    } else if (input[i].includes("four")) {
-      isStoredNumber.push(4);
-    } else if (input[i].includes("five")) {
-      isStoredNumber.push(5);
-    } else if (input[i].includes("six")) {
-      isStoredNumber.push(6);
-    } else if (input[i].includes("seven")) {
-      isStoredNumber.push(7);
-    } else if (input[i].includes("eight")) {
-      isStoredNumber.push(8);
-    } else if (input[i].includes("nine")) {
-      isStoredNumber.push(9);
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char >= "a" && char <= "z") {
+        word += char;
+      } else {
+        if (numberMap[word]) {
+          newLine += numberMap[word];
+        } else {
+          newLine += word;
+        }
+        newLine += char;
+        word = "";
+      }
     }
-  }
-  return isStoredNumber;
+
+    if (numberMap[word]) {
+      newLine += numberMap[word];
+    } else {
+      newLine += word;
+    }
+
+    return newLine;
+  });
 }
